@@ -49,7 +49,12 @@
         <div class="hsContent collection-title">
           <div class="container">
             <div class="columns {% if section.settings.contact_text_position == 'left' %} eight offset-by-one {% elsif section.settings.contact_text_position == 'right' %} eight offset-by-eight {% else %} twelve offset-by-two {% endif %} text-align--{{ section.settings.contact_text_alignment }}">
-              {{ collection.description }}
+              {% if collection.description != blank %}
+              <div style="color: #FFF;">
+                <h2 style="color: #FFF;">{{ collection.title }}</h2>
+                {{ collection.description }}
+              </div>
+              {% endif %}
             </div>
           </div>
         </div>

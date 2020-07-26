@@ -719,6 +719,38 @@ var product = {
   }
 }
 
+
+
+
+
+
+setTimeout(function(){
+    /* Product Tabs */
+      var $productTab = $('.js-product-tabs .product-tab');
+      //var productTab = document.getElementById('product-tab')
+
+      // Click the product-tab title to change the tab
+      $productTab.on('click', '.product-tab-title', function(){
+      //  productTab.addEventListener("click", function(){
+        console.log('heeeeeeeeeeeey');
+        $(this).parent('.product-tab').toggleClass('is-active');
+      });
+
+      // Open reviews tab on star rating badge click
+      $( document ).on( 'click', '.product-single .star-clickable, .product-single .spr-badge', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+
+        if ( $( '#product-tab--reviews' ).length ) {
+          var $header = $( '.site-header' );
+          var headerHeight = $header.hasClass( 'fixed' ) ? $header.outerHeight() : 0;
+          var reviewsTop = $( '#product-tab--reviews' ).offset().top - headerHeight;
+
+          $( '#product-tab--reviews' ).addClass( 'is-active' ).siblings().removeClass( 'is-active' );
+          $( 'html, body' ).stop(true).animate({ scrollTop: reviewsTop }, 300 );
+        }
+      });
+},1000)
 /*============================================================================
   Product form
 ==============================================================================*/

@@ -1,17 +1,18 @@
+{% assign content_1 = product.metafields["global"]["PrdIngCarouselContent_1"] %}
+{% assign content_2 = product.metafields["global"]["PrdIngCarouselContent_2"] %}
+{% assign content_3 = product.metafields["global"]["PrdIngCarouselContent_3"] %}
+{% assign content_4 = product.metafields["global"]["PrdIngCarouselContent_4"] %}
+{% assign content_5 = product.metafields["global"]["PrdIngCarouselContent_5"] %}
+{% assign image_1 = product.metafields["global"]["PrdIngCarouselImage_1"] %}
+{% assign image_2 = product.metafields["global"]["PrdIngCarouselImage_2"] %}
+{% assign image_3 = product.metafields["global"]["PrdIngCarouselImage_3"] %}
+{% assign image_4 = product.metafields["global"]["PrdIngCarouselImage_4"] %}
+{% assign image_5 = product.metafields["global"]["PrdIngCarouselImage_5"] %}
+{% if content_1 != blank or content_2 != blank or content_3 != blank or content_4 != blank or content_5 != blank %}
 <div class="container-fluid">
   <div class="row">
 
     <div class="one-third columns desc relative" style="background-color: #000;">
-      {% assign content_1 = product.metafields["global"]["PrdIngCarouselContent_1"] %}
-      {% assign content_2 = product.metafields["global"]["PrdIngCarouselContent_2"] %}
-      {% assign content_3 = product.metafields["global"]["PrdIngCarouselContent_3"] %}
-      {% assign content_4 = product.metafields["global"]["PrdIngCarouselContent_4"] %}
-      {% assign content_5 = product.metafields["global"]["PrdIngCarouselContent_5"] %}
-      {% assign image_1 = product.metafields["global"]["PrdIngCarouselImage_1"] %}
-      {% assign image_2 = product.metafields["global"]["PrdIngCarouselImage_2"] %}
-      {% assign image_3 = product.metafields["global"]["PrdIngCarouselImage_3"] %}
-      {% assign image_4 = product.metafields["global"]["PrdIngCarouselImage_4"] %}
-      {% assign image_5 = product.metafields["global"]["PrdIngCarouselImage_5"] %}
 
       {% if content_1 != blank or content_2 != blank or content_3 != blank or content_4 != blank or content_5 != blank %}
       <div class="box-desc">
@@ -118,6 +119,7 @@
 
   </div>
 </div>
+{% endif %}
 
 {% schema %}
   {

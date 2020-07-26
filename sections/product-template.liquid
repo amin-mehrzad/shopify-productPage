@@ -82,15 +82,15 @@
 
         
         
-        <ul class="tabs">
-<li><a class="active" href="#tab1">Tab 1</a></li>
+   <!--     <ul class="tabs ">
+<li><a class=" toggles active" href="#tab1">Tab 1</a></li>
 <li><a href="#tab2">Tab 2</a></li>
 <li><a href="#tab3">Tab 3</a></li>
 </ul>
 <ul class="tabs-content">
 <li class="active" id="tab1">
 <p>Tab 1 content goes here.</p>
-  {{ product.metafields["global"]["PrdIngTabs"] }}
+
 </li>
 <li id="tab2">
 <p>Tab 2 content goes here.</p>
@@ -99,6 +99,59 @@
 <p>Tab 3 content goes here.</p>
 </li>
 </ul>
+        
+        
+        
+        
+        
+        
+        <div class="tabs" data-design="toggles">
+
+   <div class="titles">
+      <h5>Shipping Policy</h5>
+      <h5>Refund Policy</h5>
+   </div>
+
+   <div class="contents">
+      <div class="tab">
+	<p>Your shipping policy content here.</p>
+      </div>
+      <div class="tab">
+	<p>Your refund policy here.</p>
+      </div>
+   </div>
+
+</div> -->
+        
+        
+               
+        
+        
+        <div class="product-tabs js-product-tabs">
+          {% if  product.metafields["global"]["Tab1_Description"]  %}
+        	<div class="product-tab" id='product-tab'>
+              <div class="product-tab-title" itemprop="title"><b>{{ product.metafields["global"]["Tab1_Title"] }}</b><span class="icon-toggle"></span></div>
+         	    <div class="product-tab-content" itemprop="content">{{ product.metafields["global"]["Tab1_Description"] }}</div>
+        	</div>
+          {% endif %}
+          {% if  product.metafields["global"]["Tab2_Description"]  %}
+            <div class="product-tab" id='product-tab'>
+          		<div class="product-tab-title" itemprop="title"><b>{{ product.metafields["global"]["Tab2_Title"] }}</b><span class="icon-toggle"></span></div>
+         	    <div class="product-tab-content" itemprop="content">{{ product.metafields["global"]["Tab2_Description"] }}</div>
+        	</div>
+          {% endif %}
+          {% if  product.metafields["global"]["Tab3_Description"]  %}
+                  	<div class="product-tab" id='product-tab'>
+          		<div class="product-tab-title" itemprop="title"><b>{{ product.metafields["global"]["Tab3_Title"] }}</b><span class="icon-toggle"></span></div>
+         	    <div class="product-tab-content" itemprop="content">{{ product.metafields["global"]["Tab3_Description"] }}</div>
+        	</div>
+          {% endif %}
+        </div>
+        
+        
+        
+
+        
         {% unless collection_handles contains 'coming-soon' %}
           {% include 'product-form' with 'product' %}
         {% endunless %}
@@ -118,6 +171,8 @@
         {% if section.settings.display_collections or section.settings.display_tags or section.settings.display_type %}
         {% endif %}
 
+
+        
         <div class="meta">
 
           {% include "social-buttons" with "product" %}
