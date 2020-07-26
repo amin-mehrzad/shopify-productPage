@@ -1,0 +1,153 @@
+<!--Page Title Section Start-->
+
+{% assign feature_image = true %}
+
+{% assign image = section.settings.banner_image %}
+
+{% if collection.image != nil %}
+  {% assign image = collection.image %}
+{% endif %}
+
+<div id="slide-contact" class="parallax-banner featured-image--{{ feature_image }} parallax_effect--{{ section.settings.parallax_effect }}">
+  <div class="lazyload bcg"
+    {% if section.settings.parallax_effect %}
+      data-bottom-top="background-position: 50% 0px;"
+      data-top-bottom="background-position: 50% -200px;"
+      data-anchor-target="#slide-contact"
+      data-bgset="  {{ image | img_url: '2048x' }} 2048w,
+                    {{ image | img_url: '1600x' }} 1600w,
+                    {{ image | img_url: '1200x' }} 1200w,
+                    {{ image | img_url: '1000x' }} 1000w,
+                    {{ image | img_url: '800x' }} 800w,
+                    {{ image | img_url: '600x' }} 600w,
+                    {{ image | img_url: '400x' }} 400w"
+      data-sizes="100vw"
+    {% endif %}
+      >
+      <div class="hsContainer">
+        {% if section.settings.parallax_effect %}
+          <noscript>
+            <img   alt="{{ image.alt }}"
+                  src="{{ image | img_url: '2048x' }}"
+                  class="image__fallback"
+            />
+          </noscript>
+        {% endif %}
+        <img  src="{{ image | img_url: '300x' }}"
+              alt="{{ image.alt }}"
+              data-src="{{ image | img_url: '2048x' }}"
+              class="lazyload lazyload--fade-in hsContainer__image"
+              sizes="100vw"
+              srcset="  {{ image | img_url: '2048x' }} 2048w,
+                        {{ image | img_url: '1600x' }} 1600w,
+                        {{ image | img_url: '1200x' }} 1200w,
+                        {{ image | img_url: '1000x' }} 1000w,
+                        {{ image | img_url: '800x' }} 800w,
+                        {{ image | img_url: '600x' }} 600w,
+                        {{ image | img_url: '400x' }} 400w"
+        />
+        <div class="hsContent collection-title">
+          <div class="container">
+            <div class="columns {% if section.settings.contact_text_position == 'left' %} eight offset-by-one {% elsif section.settings.contact_text_position == 'right' %} eight offset-by-eight {% else %} twelve offset-by-two {% endif %} text-align--{{ section.settings.contact_text_alignment }}">
+              {{ collection.description }}
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+</div>
+<!--Page Title Section End-->
+
+{% schema %}
+{
+  "name": "Page Title Image",
+  "class": "contact-template-section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Banner Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "banner_image",
+      "label": "Image",
+      "info": "2048 x 850px recommended"
+    },
+    {
+      "type": "text",
+      "id": "banner_title",
+      "label": "Heading",
+      "default": "Get in touch"
+    },
+    {
+      "type": "richtext",
+      "id": "subtitle",
+      "label": "Subheading"
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "select",
+      "id": "contact_text_position",
+      "label": "Text position",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "select",
+      "id": "contact_text_alignment",
+      "label": "Text alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "header",
+      "content": "Parallax"
+    },
+    {
+      "type": "checkbox",
+      "id": "parallax_effect",
+      "label": "Enable parallax scrolling",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "parallax_image_height",
+      "label": "Parallax section height",
+      "min": 300,
+      "max": 1000,
+      "step": 20,
+      "default": 400,
+      "unit": "px"
+    }
+  ]
+}
+{% endschema %}
