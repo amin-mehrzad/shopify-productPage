@@ -120,6 +120,7 @@
         class="{% if settings.cart_action == 'ajax' %} ajax-submit {% endif %}action_button add_to_cart {% if show_payment_button %} action_button--secondary {% endif %}"
         data-label={{ add_to_cart_label | json }} onclick="popupCandle()"><span
           class="text">{{ add_to_cart_label }}</span></button>
+      // TODO uncomment this tag
       {% endcomment %}
       <button type="{% if settings.cart_action == 'ajax' %}button{% else %}submit{% endif %}" name="add" id="AddToCart"
         class="{% if settings.cart_action == 'ajax' %} ajax-submit {% endif %}action_button add_to_cart {% if show_payment_button %} action_button--secondary {% endif %}"
@@ -146,6 +147,7 @@
 
 <script>
   function popupCandle() {
-    console.log('kjhkhkjhkjhkj');
+    // TODO prevent event and open modal then continue
+    console.log('add to cart pressed');
   }
 </script>
