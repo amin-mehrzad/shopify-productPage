@@ -147,13 +147,13 @@
 
 <script>
 
-  function popupCandle(e) {
+  /*function popupCandle(e) {
     var checkoutTermModal = document.getElementById('checkout-popup-background');
     // TODO prevent event and open modal then continue
     e.preventDefault();
     checkoutTermModal.style.display = "block";
     console.log('add to cart pressed');
-  }
+  }*/
 
 
 
@@ -177,7 +177,7 @@ var termAgreed=false;
           setTimeout(function(){ // check again in a second
 
     //    var checkoutDrawerButton = document.body.getElementsByClassName('btn btn--full cart__checkout drawer-button')[0];
-       var checkoutDrawerButton = document.body.getElementById('AddToCart');
+       var checkoutDrawerButton = document.getElementById('AddToCart');
         //  console.log(checkoutDrawerButton);
 
          checkoutDrawerButton.onclick = function(e) {
@@ -189,7 +189,7 @@ var termAgreed=false;
 
            }
            console.log(termAgreed);
-termAgreed=true;
+//termAgreed=true;
            }
 
           // if (checkoutDrawerButton.clicked == true)
